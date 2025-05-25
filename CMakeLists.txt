@@ -29,9 +29,9 @@ project(corner_weighing)
 pico_sdk_init()
 
 add_executable(corner_weighing
-    main.cpp
-    hx711.cpp
-    ssd1306.cpp
+    src/main.cpp
+    src/hx711.cpp
+    src/ssd1306.cpp
 )
 
 target_include_directories(corner_weighing PRIVATE
