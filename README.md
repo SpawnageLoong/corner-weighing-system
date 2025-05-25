@@ -16,6 +16,8 @@ The initial code for this project was generated using ChatGPT's 4o model on 25-M
 
 ## 📦 Dependencies
 
+This project is designed to be built on a Windows system using the VSCode Raspberry Pi Pico extension.
+
 - [pico-sdk](https://github.com/raspberrypi/pico-sdk)
 - CMake ≥ 3.13
 - GCC ARM Toolchain
@@ -26,14 +28,10 @@ The initial code for this project was generated using ChatGPT's 4o model on 25-M
 git clone https://github.com/yourusername/corner-weighing-system.git
 cd corner-weighing-system
 
-# Clone Pico SDK if not already available
-git clone -b master https://github.com/raspberrypi/pico-sdk
-export PICO_SDK_PATH=$PWD/pico-sdk
-
 # Create and build
 mkdir build && cd build
-cmake ..
-make
+cmake .. -G Ninja
+ninja
 ```
 
 ## 🤖 Use of AI

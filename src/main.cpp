@@ -3,6 +3,8 @@
 #include "hx711.h"
 #include "hardware/i2c.h"
 #include "ssd1306.h"
+#include <cstring>  // for strlen
+
 
 #define I2C_PORT i2c0
 #define SDA_PIN 4
@@ -139,7 +141,7 @@ int main() {
             weights[i] = (raw - tareOffset[i]) / calibrationFactor[i];
         }
 
-        displayWeights(display, weights);
+        displayWeights(display, weights, -1);
 
         if (!gpio_get(TARE_BUTTON)) {
             tare();

@@ -2,6 +2,9 @@
 #include "pico/stdlib.h"
 #include <string.h>
 #include <stdio.h>
+#include <cstdlib> // for abs()
+#include <cmath>
+
 
 // 5x7 font (basic ASCII 32-127)
 extern const uint8_t font5x7[][5];
@@ -85,9 +88,12 @@ void SSD1306::set_pixel(int x, int y, bool on) {
 
 // Bresenham's line algorithm
 void SSD1306::draw_line(int x0, int y0, int x1, int y1) {
-    int dx = abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
-    int dy = -abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
+    int dx = abs(x1 - x0);
+    int sx = x0 < x1 ? 1 : -1;
+    int dy = -abs(y1 - y0);
+    int sy = y0 < y1 ? 1 : -1;
     int err = dx + dy;
+
     while (true) {
         set_pixel(x0, y0, true);
         if (x0 == x1 && y0 == y1) break;
@@ -96,6 +102,7 @@ void SSD1306::draw_line(int x0, int y0, int x1, int y1) {
         if (e2 <= dx) { err += dx; y0 += sy; }
     }
 }
+
 
 void SSD1306::draw_rect(int x, int y, int w, int h) {
     draw_line(x, y, x + w - 1, y);
