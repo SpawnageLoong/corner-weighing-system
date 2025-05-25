@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <cstdlib> // for abs()
 #include <cmath>
+#include "font5x7.h" // Include the font header file
 
 
 // 5x7 font (basic ASCII 32-127)
