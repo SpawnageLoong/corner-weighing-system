@@ -113,6 +113,11 @@ int main() {
         loadCells[i].begin();
     }
 
+    const uint LED_PIN = 25;
+    gpio_init(LED_PIN);
+    gpio_set_dir(LED_PIN, GPIO_OUT);
+    gpio_put(LED_PIN, 1);  // Turn on LED
+
     gpio_init(TARE_BUTTON);
     gpio_set_dir(TARE_BUTTON, GPIO_IN);
     gpio_pull_up(TARE_BUTTON);
