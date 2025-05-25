@@ -137,7 +137,7 @@ int main() {
     display.clear();
     display.display();
 
-    tare();
+    //tare();
 
     while (true) {
         float weights[NUM_CORNERS];
